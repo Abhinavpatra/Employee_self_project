@@ -1,0 +1,74 @@
+@import "tailwindcss";
+*{
+    color:#fff
+}
+body{
+    background-color: #222;
+}
+
+#tasklist::-webkit-scrollbar    {
+  display: none
+
+}
+/* Add custom font sizes */
+@layer base {
+    h1 {
+      @apply text-4xl;
+    }
+    h2 {
+      @apply text-3xl;
+    }
+    h3 {
+      @apply text-2xl;
+    }
+    h4 {
+      @apply text-xl;
+    }
+    h5 {
+      @apply text-lg;
+    }
+    h6 {
+      @apply text-base;
+    }
+  }
+  
+  /* Custom spacing */
+  @layer utilities {
+    .gap-8 {
+      gap: 2rem;
+    }
+    .gap-16 {
+      gap: 4rem;
+    }
+  }
+  
+  /* Custom container sizes */
+  @layer components {
+    .container {
+      @apply max-w-screen-md mx-auto;
+    }
+    .container-lg {
+      @apply max-w-screen-lg mx-auto;
+    }
+  }
+  
+  /* Custom text colors */
+  @layer utilities {
+    .text-mint {
+      color: #b2fffc;
+    }
+    .text-dark-gray {
+      color: #333333;
+    }
+  }
+  
+  /* Custom background colors */
+  @layer utilities {
+    .bg-mint {
+      background-color: #b2fffc;
+    }
+    .bg-dark-gray {
+      background-color: #333333;
+    }
+  }
+  
