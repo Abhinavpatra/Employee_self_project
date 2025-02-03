@@ -1,56 +1,48 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 
-export default function Login() {
-    const[email, setEmail] = useState ("");
-    const[password, setPassword] = useState (""); 
-
-    //two way binding
-    const submitHandler=(e: React.FormEvent<HTMLFormElement>)=>{
-        e.preventDefault();
-        console.log(e.target);
-        console.log("Form Submitted");
-        console.log("email: ",email);
-        console.log("password:",password)
-    }
-
-
-  return (
-    <div className="h-screen w-screen flex items-center justify-center">
-      <div className="border-2 border-emerald-600 rounded-xl p-10">
-        <form 
-        action="" 
-        className="flex flex-col items-center"
-        onSubmit={(e)=>{
-            submitHandler(e);
-        }}
-        >
-            <input 
-            onChange={(e)=>{
-                setEmail(e.target.value)
-
-            }}
-            required 
-            className=" text-white border-2 outline-none m-2 px-3 py-4 border-emerald-300 cursor-text rounded-full placeholder:text-slate-300 "
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-              />
-            <input 
-            onChange={(e)=>{
-                setPassword(e.target.value)
-
-            }}
-            required 
-            className="text-white border-2 outline-none m-2 px-3 py-4 border-emerald-300 cursor-text rounded-full placeholder:text-slate-300 "  
-            type="password" 
-            placeholder="Enter Password"
-            value={password}
-            />
-            <button  className=" text-white border-none outline-none mt-4 px-10 py-2 bg-emerald-300 rounded-full hover:bg-emerald-400 " >Log In </button>
-        </form >
-      </div>
-    </div>
-  )
+interface LoginProps {
+  handleLogin: (email: string, password: string) => void;
 }
 
-//form default behaviour is to reload, whenever we say anything
+export default function Login({ handleLogin }: LoginProps) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleLogin(email, password);
+    setEmail('');
+    setPassword('');
+  };
+
+  return (
+    <div className='flex h-screen w-screen items-center justify-center'>
+      <div className='border-2 rounded-xl border-emerald-600 p-20'>
+        <form
+          onSubmit={submitHandler}
+          className='flex flex-col items-center justify-center'
+        >
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className='outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-2 px-6 rounded-full placeholder:text-gray-400'
+            type='email'
+            placeholder='Enter your email'
+          />
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className='outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-2 px-6 rounded-full mt-3 placeholder:text-gray-400'
+            type='password'
+            placeholder='Enter password'
+          />
+          <button className='mt-7 text-white border-none outline-none hover:bg-emerald-700 font-semibold bg-emerald-600 text-lg py-2 px-8 w-full rounded-full placeholder:text-white'>
+            Log in
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
