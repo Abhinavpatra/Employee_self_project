@@ -13,7 +13,7 @@ interface Task {
 }
 
 export default function CreateTask() {
-  const { userData, setUserData } = useContext(AuthContext) as { userData: Array<{
+  const { userData, setUserData } = useContext(AuthContext) as unknown as { userData: Array<{
     tasks: any; firstName: string, taskCounts: { newTask: number, active: number, completed: number, failed: number } 
 }>, setUserData: (data: any) => void }
 

@@ -8,7 +8,7 @@ const App = () => {
 
   const [user, setUser] = useState<String | null>(null)
   const [loggedInUserData, setLoggedInUserData] = useState<{ email: string, password: string } | null>(null)
-  const userData = useContext(AuthContext) as { email: string, password: string }[]
+  const userData = (useContext(AuthContext) as unknown as { email: string, password: string }[]) || []
 
   useEffect(()=>{
     const loggedInUser = localStorage.getItem('loggedInUser')
