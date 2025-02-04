@@ -13,7 +13,9 @@ interface Task {
 }
 
 export default function CreateTask() {
-  const [userData, setUserData] = useContext(AuthContext);
+  const { userData, setUserData } = useContext(AuthContext) as { userData: Array<{
+    tasks: any; firstName: string, taskCounts: { newTask: number, active: number, completed: number, failed: number } 
+}>, setUserData: (data: any) => void }
 
   const [taskTitle, setTaskTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
@@ -22,7 +24,7 @@ export default function CreateTask() {
   const [category, setCategory] = useState('');
 
   const [newTask, setNewTask] = useState<Task | null>(null);
-
+console.log(newTask);
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 

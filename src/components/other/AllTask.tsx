@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 
 const AllTask = () => {
 
-   const [userData,setUserData] =  useContext(AuthContext)
+   const { userData } = useContext(AuthContext) as { userData: Array<{ firstName: string, taskCounts: { newTask: number, active: number, completed: number, failed: number } }> }
 
    
   return (
