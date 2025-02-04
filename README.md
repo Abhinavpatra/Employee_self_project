@@ -1,3 +1,30 @@
+Admin Credentials
+Email: admin@example.com
+Password: 123
+
+Employee Credentials
+
+Employee 1:
+
+Email: e@e.com
+Password: 123
+Employee 2:
+
+Email: employee2@example.com
+Password: 123
+Employee 3:
+
+Email: employee3@example.com
+Password: 123
+Employee 4:
+
+Email: employee4@example.com
+Password: 123
+Employee 5:
+
+Email: employee5@example.com
+Password: 123
+
 additional installations
 
 1. npm i -D react-router-dom

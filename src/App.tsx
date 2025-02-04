@@ -6,9 +6,9 @@ import { AuthContext } from './context/AuthContext'
 
 const App = () => {
 
-  const [user, setUser] = useState(null)
-  const [loggedInUserData, setLoggedInUserData] = useState(null)
-  const [userData,SetUserData] = useContext(AuthContext)
+  const [user, setUser] = useState<String | null>(null)
+  const [loggedInUserData, setLoggedInUserData] = useState<{ email: string, password: string } | null>(null)
+  const userData = useContext(AuthContext) as { email: string, password: string }[]
 
   useEffect(()=>{
     const loggedInUser = localStorage.getItem('loggedInUser')
@@ -22,7 +22,7 @@ const App = () => {
   },[])
 
 
-  const handleLogin = (email, password) => {
+  const handleLogin = (email: String, password: String) => {
     if (email == 'admin@me.com' && password == '123') {
       setUser('admin')
       localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))

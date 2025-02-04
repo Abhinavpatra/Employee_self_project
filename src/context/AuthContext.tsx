@@ -1,9 +1,12 @@
-import React, { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { getLocalStorage, setLocalStorage } from '../utils/localStorage'
 
+//@ts-ignore
 export const AuthContext = createContext()
 
-const AuthProvider = ({ children }) => {
+import { ReactNode } from 'react';
+
+const AuthProvider = ({ children }: { children: ReactNode }) => {
     // localStorage.clear()
 
     const [userData, setUserData] = useState(null)

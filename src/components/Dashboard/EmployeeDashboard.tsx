@@ -12,7 +12,7 @@ export default function EmployeeDashboard({ changeUser, data }: EmployeeDashboar
   return (
     <div className='p-10 bg-[#1C1C1C] h-screen'>
 
-      <Header changeUser={changeUser} data={data} />
+      <Header changeUser={changeUser} />
       <TaskListNumbers data={data} />
       <TaskList data={data} />
     </div>
